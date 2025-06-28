@@ -1,0 +1,31 @@
+# SQL Injection Proof of Concept
+
+Target Lab: PortSwigger Academy – SQL Injection Login Bypass  
+Lab URL: https://0a8000dd046b824783bbd7c500c1009a.web-security-academy.net/login  
+Analyst: G Narendran
+Date: 28-June-2025
+
+---
+
+Payload Used:
+administrator'--
+
+CSRF Token Used:
+qF2XwNQurh3ASvMMsHl2FJ3WK3IiQ5MW
+
+Steps Taken:
+1. Accessed the lab's vulnerable login form.
+2. Intercepted the POST /login request via Burp Suite.
+3. Inserted SQLi payload in the username field: `administrator'--`
+4. Forwarded the modified request with a valid CSRF token.
+5. Received HTTP 302 redirect.
+6. Lab displayed "Congratulations, you solved the lab."
+
+---
+
+Impact:
+- Full authentication bypass
+- Access granted as administrator
+- No valid credentials required
+
+Lab Status: ✅ Solved
